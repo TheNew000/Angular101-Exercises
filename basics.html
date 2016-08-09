@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    
+<script type="text/javascript">
+    var myApp = angular.module('myApp', []);
+    myApp.controller('myController', function($scope){
+        $scope.firstName = "Hambone"
+
+        $scope.$watch('lastName', function(newValue, oldValue){
+            console.log('The old value was ' + oldValue + ' The new value is ' + newValue);
+        });
+        $scope.students = ['Summer', 'JT', 'Jackson', 'Shirlette'];
+
+    });
+</script>
+
+</head>
+<body ng-controller="myController">
+
+<!--     Name: <input type="text" ng-model="firstName">
+    Last Name: <input type="text" ng-model="lastName">
+    <br />Hello, {{firstName}} {{lastName}}! -->
+
+First Name:<input type="text" ng-model="firstName">
+Last Name:<input type="text" ng-model="lastName">
+
+<div>
+Welcome to my Hell, {{firstName}} {{lastName}}
+</div>
+
+{{students}} 
+<li ng-repeat="student in students track by $index">
+    {{$index}}: {{student}}
+</li>
+
+<script type="text/javascript">
+
+// var theInput = document.getElementById('name');
+// var placeName = document.getElementById('placeName');
+// theInput.addEventListener('keyup', function(){
+//     var inputText = theInput.value;
+//     placeName.innerHTML = inputText;
+// });
+
+</script>
+
+</body>
+</html>

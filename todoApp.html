@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="todo.js"></script>
+</head>
+<body ng-controller="todoCtrl">
+
+    <h1>To-Do App</h1>
+    <form ng-submit="todoAdd()">
+        <input type="text" ng-model="titleInput" size="50" placeholder="Add Title">
+        <br>
+        <input type="text" ng-model="todoInput" size="50" placeholder="Description of Task">
+        <br>
+        <input type="text" ng-model="deadlineInput" size="50" placeholder="Deadline">
+        <br>
+        <input type="submit" value="Add New">
+    </form>
+
+    <br>
+
+    <div ng-repeat="item in todoList">
+        <input type="checkbox" ng-model="item.done"> <div>Title: <span ng-bind="item.titleText"></span><br>Description: <span ng-bind="item.todoText"></span><br>Deadline: <span ng-bind="item.deadlineText"></span></div>
+    </div>
+
+    <p><button ng-click="remove()">Remove marked</button></p>
+
+</body>
+</html>
